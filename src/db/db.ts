@@ -2,7 +2,7 @@
 import mongoose, { ConnectOptions } from "mongoose";
 
 const MONGO_URL =
-  "mongodb+srv://sami:<password>@saikat.2ccr0.mongodb.net/training?retryWrites=true&w=majority";
+  "mongodb+srv://sami:sami1234@saikat.2ccr0.mongodb.net/training?retryWrites=true&w=majority";
 
 // process.env.
 
@@ -11,21 +11,17 @@ const connectDB = async () => {
     useNewUrlParser: true,
     keepAlive: true,
   };
-  const conn: any = await mongoose.connect(
-    MONGO_URL,
-    options as ConnectOptions,
-    (error) => {
-      // handle the error case
-      if (error) {
-        console.log(error);
-        throw error;
-      } else {
-        console.log("connected to mongo server");
-      }
-    }
-  );
-  console.log(conn);
-  // console.log(`MongoDB Connected: ${conn.connection.host}`);
+  const conn: any = await mongoose
+    .connect(MONGO_URL, options as ConnectOptions)
+    .then((res) => {
+      console.log(`MongoDB Connected: ${res.connection.host}`);
+    })
+    .catch((err) => {
+      console.log(
+        `Initial Distribution API Database connection error occured -`,
+        err
+      );
+    });
 };
 
 export default connectDB;
