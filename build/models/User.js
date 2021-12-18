@@ -87,12 +87,4 @@ UserSchema.methods.matchPassword = function (enteredPassword) {
     });
 };
 const User = mongoose_1.default.model("User", UserSchema);
-const users = {
-    _id: "5d7a514b5d2c12c7449be042",
-    name: "Admin Account",
-    email: "admin@gmail.com",
-    role: "user",
-    password: "123456",
-};
-User.create(users);
 exports.default = User;

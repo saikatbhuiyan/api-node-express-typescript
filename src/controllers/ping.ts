@@ -1,15 +1,12 @@
-import { Get, Route } from "tsoa";
+import { Request, Response, NextFunction } from "express";
 
-interface PingResponse {
-  message: string;
-}
-
-@Route("ping")
 export default class PingController {
-  // @Get("/{id}/edit")
-  public async getMessage(limit: string): Promise<PingResponse> {
-    return {
-      message: "pong limit= " + limit + "  mode = edit",
-    };
+  constructor() {}
+
+  async getMessage(req: Request, res: Response, next: NextFunction) {
+    const query = req.query;
+    const limit: string | any = query.limit?.toString();
+    console.log("id:", limit);
+    res.status(200).json({ message: "pong limit= " + limit + "  mode = edit" });
   }
 }

@@ -8,17 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-class PingController {
-    constructor() { }
-    getMessage(req, res, next) {
-        var _a;
-        return __awaiter(this, void 0, void 0, function* () {
-            const query = req.query;
-            const limit = (_a = query.limit) === null || _a === void 0 ? void 0 : _a.toString();
-            console.log("id:", limit);
-            res.status(200).json({ message: "pong limit= " + limit + "  mode = edit" });
-        });
-    }
-}
-exports.default = PingController;
+exports.getAllUsers = void 0;
+const User_1 = __importDefault(require("../models/User"));
+// @desc      Get ALL Users
+// @route     Get /api/v1/auth/users
+const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const users = yield User_1.default.find();
+    res.status(200).json({ data: users });
+});
+exports.getAllUsers = getAllUsers;

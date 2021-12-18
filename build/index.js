@@ -20,25 +20,7 @@ app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.defaul
         url: "/swagger.json",
     },
 }));
-app.use(routes_1.default);
+new routes_1.default(app);
 app.listen(PORT, () => {
     console.log("Server is running on port", PORT);
 });
-// app.get("/ping",async (_req, res)=>{
-//     res.send({
-//         message:"pong-new",
-//     });
-// });
-// app.get("/pong",async (_req, res)=>{
-//     res.send({
-//         message:"ping",
-//     });
-// });
-// app.get("/ping-ping",async (_req, res)=>{
-//     res.send({
-//         message:"pong-png",
-//     });
-// });
-// app.listen(PORT, ()=>{
-//     console.log("Server is running out on port",PORT);
-// })

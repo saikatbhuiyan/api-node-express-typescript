@@ -24,7 +24,6 @@ const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     const conn = yield mongoose_1.default
         .connect(MONGO_URL, options)
         .then((res) => {
-        console.log(res.models);
         console.log(`MongoDB Connected: ${res.connection.host}`);
     })
         .catch((err) => {
