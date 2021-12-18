@@ -2,7 +2,7 @@
 import mongoose, { ConnectOptions } from "mongoose";
 
 const MONGO_URL =
-  "mongodb+srv://sami:sami1234@saikat.2ccr0.mongodb.net/training?retryWrites=true&w=majority";
+  "mongodb+srv://sami:<password>@saikat.2ccr0.mongodb.net/training?retryWrites=true&w=majority";
 
 // process.env.
 
